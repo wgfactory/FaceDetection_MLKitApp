@@ -40,6 +40,6 @@
         android:id="@+id/grapic_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btn_detect"/>
+        android:layout_above="@+id/btn_layout"/>
 
 </RelativeLayout>
