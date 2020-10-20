@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //TODO - onCreate() 함수 로그 출력!
         Log.d(TAG, ">> onCreate()")
 
         // "잠시만 기다려 주세용!" 팝업창 코드
@@ -91,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun runFaceDetector(bitmap: Bitmap?) {
-        //TODO - runFaceDetector() 함수 로그 출력
+        Log.d(TAG, ">> runFaceDetector()")
 
         var image = FirebaseVisionImage.fromBitmap(bitmap!!)
 
@@ -114,7 +113,7 @@ class MainActivity : AppCompatActivity() {
 
     // 얼굴 검출이 완료되고 수행되는 결과 함수
     private fun processFaceResult(faceResult: List<FirebaseVisionFace>, drawType: Int) {
-        //TODO - processFaceResult() 함수 로그 출력
+        Log.d(TAG, ">> processFaceResult()")
 
         var count = 0
 
@@ -133,18 +132,16 @@ class MainActivity : AppCompatActivity() {
                 val bounds = face.boundingBox
                 val rectOverlay = RectOverlay(grapic_overlay, bounds)
                 grapic_overlay.add(rectOverlay)
-
             }
 
             if(drawType == DRAW_FACE_CONTOUR) {
                 var faceGraphic = FaceGraphicOverlay(grapic_overlay, face)
                 grapic_overlay.add(faceGraphic)
-
             }
             count++
         }
 
-        // Dialog 사라지게 하는 코
+        // Dialog 사라지게 하는 코드
         waitingDialog.dismiss()
         showToast(String.format("인공지능이 감지한 얼굴은 %d 명 입니다!", count), Toast.LENGTH_LONG)
     }
@@ -154,25 +151,28 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, message, duration).show()
     }
 
+    //onResume() 함수 - 화면이 보여질 때!!
     override fun onResume() {
         super.onResume()
-
-        //TODO - onResume() 함수 로그 출력
+        Log.d(TAG, ">> onResume()")
 
         camera_view.start()
+
+        //어플 실행시에 전면카메라로 시작하기!
+        camera_view.facing = FACING_FRONT
     }
 
+    //onPause() 함수!!
     override fun onPause() {
         super.onPause()
-
-        //TODO nPause() 함수 로그 출력
+        Log.d(TAG, ">> onPause()")
 
         camera_view.stop()
     }
 
+    //onDestroy() 함수!!
     override fun onDestroy() {
         super.onDestroy()
-
-        //TODO - onDestroy()함수 로그 출력
+        Log.d(TAG, ">> onDestroy()")
     }
 }
