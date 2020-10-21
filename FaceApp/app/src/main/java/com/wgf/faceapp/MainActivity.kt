@@ -21,7 +21,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val TAG = MainActivity::class.java.name
+    val TAG = MainActivity::class.simpleName
+
+//    private lateinit var binding: ActivityMainBinding
+
     val DRAW_FACE_BOX = 1
     val DRAW_FACE_CONTOUR = 2
 
