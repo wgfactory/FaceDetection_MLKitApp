@@ -25,7 +25,8 @@
             android:id="@+id/btn_detect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Action Face Detection!"
+            android:text="얼굴 인식 하기! Click Click!"
+            android:textStyle="bold"
             android:background="#D8F3FF"
             android:layout_weight="7"/>
     </LinearLayout>
